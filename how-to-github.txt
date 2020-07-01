@@ -38,12 +38,19 @@ Access a perticular branch to start code
 	(Now this file has been added to your branch)
 	(Once you done coding your things)
 	
+	$ git status
+	(make sure you are on your branch, if not then do git checkout NameOfBranch)
+	(Never do anything to master branch)
+	$ git stash
+	$ git pull
+	$ git stash apply
 	$ git add .
 	$ git commit -m "description of the changes you made"
 	$ git push --set-upstream origin AddingButtonFeature-Suchith
 	
 	(Once you are done with everything you want to add, inform me, i'll merege your feature with the main app)
 	
+IMPORTANT: Never do anything in master branch.
 	
 --- Lets try doing a test project --
 
