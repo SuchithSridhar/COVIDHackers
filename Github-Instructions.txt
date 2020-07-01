@@ -1,0 +1,36 @@
+You can test the pull request with this file.
+
+-- pull files from remote repo --
+git pull https://github.com/SuchithSridhar/COVIDHackers.git
+
+-- check status --
+git status
+
+-- stage files for commit --
+git add .
+
+-- Commit files with commit message --
+git commit -m "commit message"
+
+-- push changes to remote repo --
+git push --set-upstream origin https://github.com/SuchithSridhar/COVIDHackers.git
+# after first time use: git push
+
+
+-- create branch --
+git branch example_branch
+
+-- checkout branch --
+git checkout example_branch
+
+-- merge branch (from parent branch) --
+git merge example_branch
+
+-- see info --
+git remote -v
+
+-- see all branches --
+git branch -a
+
+-- check help whenever needed --
+git --help
