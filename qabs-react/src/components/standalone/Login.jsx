@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Joi from "joi-browser";
 import "./css/login.css";
 
 class Login extends Component {
@@ -7,25 +6,36 @@ class Login extends Component {
     data: { username: "", password: "" },
   };
 
-  schema = {
-    username: Joi.string().required().label("Username"),
-    password: Joi.string().required().label("Password"),
+  handleChange = ({ currentTarget: input }) => {
+    console.log("input:", input);
+    const data = { ...this.state.data };
+    data[input.name] = input.value;
+    this.setState({ data });
   };
+
   render() {
     return (
       <div className="login-panel">
         <h1>Login</h1>
         <div className="textbox">
           <i className="fas fa-user"></i>
-          <input type="text" placeholder="Username" />
+          <input
+            name="Username"
+            value={this.state.data.username}
+            onChange={this.handleChange}
+          />
         </div>
 
         <div className="textbox">
           <i className="fas fa-lock"></i>
-          <input type="password" placeholder="Password" />
+          <input
+            name="Password"
+            value={this.state.data.password}
+            onChange={this.handleChange}
+          />
         </div>
 
-        <input type="button" className="btn-custom btn" value="Sign in"></input>
+        <input type="button" className="btn-green btn" value="Sign in"></input>
       </div>
     );
   }

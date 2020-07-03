@@ -1,6 +1,5 @@
 @import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
 
-
 body {
   margin: 0;
   padding: 0;
@@ -46,7 +45,7 @@ body {
   float: left;
   margin: 0 10px;
 }
-.btn-custom {
+.btn-green {
   width: 100%;
   background: none;
   border: 2px solid #4caf50 !important;
