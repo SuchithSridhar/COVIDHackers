@@ -2,6 +2,7 @@ import React from "react";
 // import { Redirect } from "react-router-dom";
 import Form from "./common/form";
 // import auth from "../services/authService";
+import "./css/loginForm.css";
 
 class LoginForm extends Form {
   state = {
