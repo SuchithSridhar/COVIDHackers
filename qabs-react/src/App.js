@@ -1,13 +1,12 @@
 import React from "react";
 
 import "./App.css";
-import Login from './components/standalone/Login';
+import LoginForm from "./components/loginForm";
 
 function App() {
   return (
     <div className="App">
-      <Login/>
-      <h1>Place Holder</h1>
+      <LoginForm />
     </div>
   );
 }
