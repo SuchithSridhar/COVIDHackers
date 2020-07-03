@@ -1,10 +1,19 @@
 import React, { Component } from "react";
-import "./stylesheets/login.css";
+import Joi from "joi-browser";
+import "./css/login.css";
 
 class Login extends Component {
+  state = {
+    data: { username: "", password: "" },
+  };
+
+  schema = {
+    username: Joi.string().required().label("Username"),
+    password: Joi.string().required().label("Password"),
+  };
   render() {
     return (
-      <div>
+      <div className="login-panel">
         <h1>Login</h1>
         <div className="textbox">
           <i className="fas fa-user"></i>
@@ -16,7 +25,7 @@ class Login extends Component {
           <input type="password" placeholder="Password" />
         </div>
 
-        <input type="button" className="btn" value="Sign in"></input>
+        <input type="button" className="btn-custom btn" value="Sign in"></input>
       </div>
     );
   }
