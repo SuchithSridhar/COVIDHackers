@@ -42,6 +42,23 @@ class Home extends Component {
   render() {
     return (
       <div>
+      <nav className="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
+      // <!-- navigation bar keeps extending -->
+      <div className="container-fluid">
+        // <!-- logo -->
+        <h1 className='navbar-brand'>Ministries</h1>
+        // <!-- toggler button when the screen is too small -->
+        <button className="navbar-toggler" type="button" data-toggler='collapse' data-target='#navbarResponsive'>
+          // <!-- actual button -->
+          <span className='navbar-toggler-icon'></span>
+        </button>
+        // <!-- all the options should pop out when the screen is big -->
+        <div className="collapse navbar-collapse" id='navbarResponsive'>
+          // <!-- all the options should pop out when the screen is big -->
+          <Link to="/login"><button classNam='btn-Primary'
+      </div>
+      </nav>
+
         <div>
           <label>Ministry Services</label>
           <Link to="/login">Login</Link>
