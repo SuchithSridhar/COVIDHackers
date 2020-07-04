@@ -1,5 +1,5 @@
 import React from "react";
-import '../css/loginForm.css'
+import "../css/loginForm.css";
 
 const Input = ({ name, label, error, ...rest }) => {
   return (
