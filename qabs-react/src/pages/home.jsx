@@ -29,12 +29,21 @@ class Home extends Component {
   handleMinClick = (ministry) => {
     let curState = { ...this.setState };
     curState.currentMinistry = ministry;
+    curState.currentBranch = "";
+    curState.currentService = "";
     this.setState(curState);
   };
 
   handleBraClick = (branch) => {
     let curState = { ...this.setState };
     curState.currentBranch = branch;
+    curState.currentService = "";
+    this.setState(curState);
+  };
+
+  handleSerClick = (service) => {
+    let curState = { ...this.setState };
+    curState.currentService = service;
     this.setState(curState);
   };
 
@@ -60,6 +69,23 @@ class Home extends Component {
           ))}
 
           {this.state.currentMinistry && (
+            <div>
+              <h2>Branches</h2>
+              {this.getBranches().map((item) => (
+                <li key={item.id} id={item.name}>
+                  <button
+                    onClick={() => {
+                      this.handleBraClick(item.name);
+                    }}
+                  >
+                    {item.name}
+                  </button>
+                </li>
+              ))}
+            </div>
+          )}
+
+          {this.state.currentBranch && (
             <div>
               <h2>Branches</h2>
               {this.getBranches().map((item) => (
