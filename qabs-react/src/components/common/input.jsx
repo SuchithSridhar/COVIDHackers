@@ -5,15 +5,15 @@ const Input = ({ name, label, error, ...rest }) => {
   return (
     <div className="form-group">
       <label htmlFor={name}></label>
-       <div className='textbox'>
-      <input
-        {...rest}
-        name={name}
-        id={name}
-        placeHolder={name}
-        className="form-control"
-      />
-    </div>
+      <div className="textbox">
+        <input
+          {...rest}
+          name={name}
+          id={name}
+          placeHolder={name}
+          className="form-control"
+        />
+      </div>
     </div>
   );
 };

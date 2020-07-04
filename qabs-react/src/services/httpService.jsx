@@ -14,10 +14,10 @@ axios.interceptors.response.use(null, (error) => {
   return Promise.reject(error);
 });
 
-function setJwt(jwt) {
-  console.log("JWT not set");
+// function setJwt(jwt) {
+  // console.log("JWT not set");
   //   axios.defaults.headers.common["x-auth-token"] = jwt;
-}
+// }
 
 export default {
   get: axios.get,
