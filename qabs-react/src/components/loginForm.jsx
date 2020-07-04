@@ -27,7 +27,7 @@ class LoginForm extends Form {
     // if (auth.getCurrentUser()) return <Redirect to="/" />;
 
     return (
-      <div className="login-panel">
+      <div className="login-panel padding-class">
         <h1>Login</h1>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("username", "Username")}

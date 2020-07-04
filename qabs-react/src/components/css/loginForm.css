@@ -6,15 +6,16 @@ body {
   background-size: cover;
 }
 
-.bgc {
-  background-color: #000 !important;
+.padding-class {
+  padding: 25px;
 }
 
 .box {
+  border: #4caf50;
   border-style: solid;
 }
 .login-panel {
-  background-color: rgba(11, 22, 8, 0.767);
+  background-color: #4caf50;
   width: 280px;
   position: absolute;
   top: 40%;
