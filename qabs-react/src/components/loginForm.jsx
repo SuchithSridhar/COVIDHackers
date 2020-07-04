@@ -4,6 +4,7 @@ import Form from "./common/form";
 // import auth from "../services/authService";
 import "./css/loginForm.css";
 
+
 class LoginForm extends Form {
   state = {
     data: { username: "", password: "" },
@@ -27,7 +28,7 @@ class LoginForm extends Form {
     // if (auth.getCurrentUser()) return <Redirect to="/" />;
 
     return (
-      <div>
+      <div className="login-panel">
         <h1>Login</h1>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("username", "Username")}

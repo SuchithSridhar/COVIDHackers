@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Input from "./input";
 import Select from "./select";
+import "./css/form.css";
 
 class Form extends Component {
   state = {
@@ -20,7 +21,7 @@ class Form extends Component {
 
   renderButton(label) {
     return (
-      <button disabled={false} className="btn btn-primary">
+      <button disabled={false} className='btn-custom'>
         {label}
       </button>
     );
