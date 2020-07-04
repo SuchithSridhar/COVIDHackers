@@ -19,7 +19,7 @@ body {
 .Full-Page {
   margin: 0;
   padding: 3000px;
-  background-image: url("background1.png");
+  /* background-image: url("background1.png"); */
 }
 .padding-class {
   padding: 25px;
@@ -45,11 +45,11 @@ body {
   margin: 8px 0; */
   border-bottom: 1px solid #4caf50;
 }
-.textbox i {
-  /* width: 26px; */
-  /* float: left; */
-  /* text-align: center; */
-}
+/* .textbox i { */
+/* width: 26px; */
+/* float: left; */
+/* text-align: center; */
+/* } */
 .textbox input {
   border: none;
   outline: none;
