@@ -83,15 +83,15 @@ class Home extends Component {
           <nav className="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
           <div className="container-fluid">
             <h1 className='navbar-brand'><label>Ministry Services</label></h1>
-                <form class="form-inline">
-                  <button class="btn btn-success" type="button">Login</button>
+                <form className="form-inline">
+                  <Link to='/login'><button className="btn btn-success" type="button">Login</button></Link>
               </form>
           </div>
           </nav>
         </div>
         <div>
-          <div class='container-fluid padding'>
-          <div class='row text-center padding'>
+          <div className='container-fluid padding'>
+          <div className='row text-center padding'>
 
             <div class='col-xs-12 col-sm-6 col-md-4'>
               <h2>Ministries</h2>
@@ -154,14 +154,21 @@ class Home extends Component {
 
 
         </div>
-        Im adding buttons outside the buttons div
         {this.state.currentService && (
           <div>
-            <Link
+            <div className='container'>
+              <div className='vertical-center'>
+            <form className="form-inline">
+              <Link
               to={`/queue/${this.state.currentMinistry}/${this.state.currentBranch}/${this.state.currentService}`}
-            >
+            > <button class='btn btn-primary btn-active'>
               Queue
+              </button>
             </Link>
+          </form>
+          </div>
+          </div>
+
             <Link
               to={`/appointment/${this.state.currentMinistry}/${this.state.currentBranch}/${this.state.currentService}`}
             >
