@@ -4,7 +4,9 @@ import "./css/home.css";
 
 class Home extends Component {
   state = {
-    ministries: [{ name: "Something" }, { name: "Different" }],
+    ministries: {
+      ServiceMin: { Fahaheel: { Fire: { queue: true, appointment: true } } },
+    },
     currentMinistry: "",
     currentBranch: "",
     currentService: "",
@@ -15,18 +17,45 @@ class Home extends Component {
   getMinistries = () => {
     const ministries = this.state.ministries;
     let names = [];
-    for (let index in ministries)
-      names.push({ id: index, name: ministries[index].name });
-
+    for (let name in ministries) if (name) names.push(name);
     return names;
   };
 
   getBranches = () => {
-    const ministry = this.state.currentMinistry;
-    let branches = this.state.ministries[ministry];
-    if (ministry === "Something") branches = ["fahaheel", "Mangaf"];
-    else branches = ["abu halifa"];
-    return branches;
+    const branches = this.state.ministries[this.state.currentMinistry];
+    let names = [];
+    for (let name in branches) names.push(name);
+    return names;
+  };
+
+  getServices = () => {
+    let services = "";
+    try {
+      services = this.state.ministries[this.state.currentMinistry][
+        this.state.currentBranch
+      ];
+    } catch (ex) {
+      console.log(this.state);
+      return [];
+    }
+    let names = [];
+    for (let name in services) names.push(name);
+    return names;
+  };
+
+  getServiceObject = () => {
+    try {
+      const {
+        ministries,
+        currentMinistry,
+        currentBranch,
+        currentService,
+      } = this.state;
+      return ministries[currentMinistry][currentBranch][currentService];
+    } catch (error) {
+      console.log(error);
+      return { queue: false, appointment: false };
+    }
   };
 
   handleMinClick = (ministry) => {
@@ -38,6 +67,12 @@ class Home extends Component {
   handleBraClick = (branch) => {
     let curState = { ...this.setState };
     curState.currentBranch = branch;
+    this.setState(curState);
+  };
+
+  handleSerClick = (s) => {
+    let curState = { ...this.setState };
+    curState.currentService = s;
     this.setState(curState);
   };
 
@@ -61,14 +96,14 @@ class Home extends Component {
             <div class='col-xs-12 col-sm-6 col-md-4'>
               <h2>Ministries</h2>
               <ul type='none'>
-              {this.getMinistries().map((item) => (
-                <li key={item.id} id={item.name}>
-                  <button class='btn btn-primary btn-active'
+                {this.getMinistries().map((item) => (
+                  <li key={item} id={item}>
+                    <button class='btn btn-primary btn-active'
                     onClick={() => {
-                      this.handleMinClick(item.name);
+                      this.handleMinClick(item);
                     }}
                   >
-                    {item.name}
+                    {item}
                   </button>
                 </li>
               ))}
@@ -80,13 +115,13 @@ class Home extends Component {
                 <div>
                   <h2>Branches</h2>
                   {this.getBranches().map((item) => (
-                    <li key={item.id} id={item.name}>
+                    <li key={item} id={item}>
                       <button class='btn btn-primary btn-active'
                         onClick={() => {
-                          this.handleBraClick(item.name);
+                          this.handleBraClick(item);
                         }}
                       >
-                        {item.name}
+                        {item}
                       </button>
                     </li>
                   ))}
@@ -100,13 +135,13 @@ class Home extends Component {
                 <div>
                   <h2>Services</h2>
                   {this.getServices().map((item) => (
-                    <li key={item.id} id={item.name}>
+                    <li key={item} id={item}>
                       <button class='btn btn-primary btn-active'
                         onClick={() => {
-                          this.handleSerClick(item.name);
+                          this.handleSerClick(item);
                         }}
                       >
-                        {item.name}
+                        {item}
                       </button>
                     </li>
                   ))}
@@ -119,6 +154,21 @@ class Home extends Component {
 
 
         </div>
+        Im adding buttons outside the buttons div
+        {this.state.currentService && (
+          <div>
+            <Link
+              to={`/queue/${this.state.currentMinistry}/${this.state.currentBranch}/${this.state.currentService}`}
+            >
+              Queue
+            </Link>
+            <Link
+              to={`/appointment/${this.state.currentMinistry}/${this.state.currentBranch}/${this.state.currentService}`}
+            >
+              Appointment
+            </Link>
+          </div>
+        )}
       </div>
     );
   }
