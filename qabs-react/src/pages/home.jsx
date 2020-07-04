@@ -78,56 +78,79 @@ class Home extends Component {
     return (
       <div>
         <div>
-          <label>Ministry Services</label>
-          <Link to="/login">Login</Link>
+          <nav className="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
+          <div className="container-fluid">
+            <h1 className='navbar-brand'><label>Ministry Services</label></h1>
+                <form class="form-inline">
+                  <button class="btn btn-success" type="button">Login</button>
+              </form>
+          </div>
+          </nav>
         </div>
         <div>
-          <h2>Ministry</h2>
-          {this.getMinistries().map((item) => (
-            <li key={item.id} id={item.name}>
-              <button
-                onClick={() => {
-                  this.handleMinClick(item.name);
-                }}
-              >
-                {item.name}
-              </button>
-            </li>
-          ))}
+          <div class='container-fluid padding'>
+          <div class='row text-center padding'>
 
-          {this.state.currentMinistry && (
-            <div>
-              <h2>Branches</h2>
-              {this.getBranches().map((item) => (
+            <div class='col-xs-12 col-sm-6 col-md-4'>
+              <h2>Ministries</h2>
+              <ul type='none'>
+              {this.getMinistries().map((item) => (
                 <li key={item.id} id={item.name}>
-                  <button
+                  <button class='btn btn-primary btn-active'
                     onClick={() => {
-                      this.handleBraClick(item.name);
+                      this.handleMinClick(item.name);
                     }}
                   >
                     {item.name}
                   </button>
                 </li>
               ))}
+              </ul>
             </div>
-          )}
+            <div class='col-xs-12 col-sm-6 col-md-4'>
+              <ul type='none'>
+              {this.state.currentMinistry && (
+                <div>
+                  <h2>Branches</h2>
+                  {this.getBranches().map((item) => (
+                    <li key={item.id} id={item.name}>
+                      <button class='btn btn-primary btn-active'
+                        onClick={() => {
+                          this.handleBraClick(item.name);
+                        }}
+                      >
+                        {item.name}
+                      </button>
+                    </li>
+                  ))}
+                </div>
+              )}
+            </ul>
+            </div>
+            <div class='col-xs-12 col-md-4'>
+              <ul type='none'>
+              {this.state.currentBranch && (
+                <div>
+                  <h2>Services</h2>
+                  {this.getServices().map((item) => (
+                    <li key={item.id} id={item.name}>
+                      <button class='btn btn-primary btn-active'
+                        onClick={() => {
+                          this.handleSerClick(item.name);
+                        }}
+                      >
+                        {item.name}
+                      </button>
+                    </li>
+                  ))}
+                </div>
+              )}
+            </ul>
+            </div>
+          </div>
+          </div>
 
-          {this.state.currentBranch && (
-            <div>
-              <h2>Services</h2>
-              {this.getServices().map((item) => (
-                <li key={item.id} id={item.name}>
-                  <button
-                    onClick={() => {
-                      this.handleSerClick(item.name);
-                    }}
-                  >
-                    {item.name}
-                  </button>
-                </li>
-              ))}
-            </div>
-          )}
+
         </div>
       </div>
     );
