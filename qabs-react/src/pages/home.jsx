@@ -4,7 +4,9 @@ import "./css/home.css";
 
 class Home extends Component {
   state = {
-    ministries: [{ name: "Something" }, { name: "Different" }],
+    ministries: {
+      ServiceMin: { Fahaheel: { Fire: { queue: true, appointment: true } } },
+    },
     currentMinistry: "",
     currentBranch: "",
     currentService: "",
@@ -15,42 +17,45 @@ class Home extends Component {
   getMinistries = () => {
     const ministries = this.state.ministries;
     let names = [];
-    for (let index in ministries)
-      names.push({ id: index, name: ministries[index].name });
-
+    for (let name in ministries) if (name) names.push(name);
     return names;
   };
 
   getBranches = () => {
-    const ministry = this.state.currentMinistry;
-    // let branches = this.state.ministries[ministry];
-    let branches = [];
-    if (ministry === "Something")
-      branches = [
-        { id: 1, name: "fahaheel" },
-        { id: 2, name: "Mangaf" },
-      ];
-    else branches = branches = [{ id: 1, name: "abu halifa" }];
-    return branches;
+    const branches = this.state.ministries[this.state.currentMinistry];
+    let names = [];
+    for (let name in branches) names.push(name);
+    return names;
   };
 
   getServices = () => {
-    const ministry = this.state.currentMinistry;
-    console.log(ministry);
-    const branch = this.state.currentBranch;
-    // let services = this.state.ministries[ministry][branch];
-    let services = [];
-    if (branch === "fahaheel")
-      services = [
-        { id: 1, name: "air" },
-        { id: 2, name: "water" },
+    let services = "";
+    try {
+      services = this.state.ministries[this.state.currentMinistry][
+        this.state.currentBranch
       ];
-    else if (branch === "Mangaf")
-      services = [
-        { id: 1, name: "earth" },
-        { id: 2, name: "fire" },
-      ];
-    return services;
+    } catch (ex) {
+      console.log(this.state);
+      return [];
+    }
+    let names = [];
+    for (let name in services) names.push(name);
+    return names;
+  };
+
+  getServiceObject = () => {
+    try {
+      const {
+        ministries,
+        currentMinistry,
+        currentBranch,
+        currentService,
+      } = this.state;
+      return ministries[currentMinistry][currentBranch][currentService];
+    } catch (error) {
+      console.log(error);
+      return { queue: false, appointment: false };
+    }
   };
 
   handleMinClick = (ministry) => {
@@ -83,52 +88,73 @@ class Home extends Component {
         </div>
         <div>
           <h2>Ministry</h2>
-          {this.getMinistries().map((item) => (
-            <li key={item.id} id={item.name}>
-              <button
-                onClick={() => {
-                  this.handleMinClick(item.name);
-                }}
-              >
-                {item.name}
-              </button>
-            </li>
-          ))}
+          <ul>
+            {this.getMinistries().map((item) => (
+              <li key={item} id={item}>
+                <button
+                  onClick={() => {
+                    this.handleMinClick(item);
+                  }}
+                >
+                  {item}
+                </button>
+              </li>
+            ))}
+          </ul>
 
-          {this.state.currentMinistry && (
-            <div>
-              <h2>Branches</h2>
-              {this.getBranches().map((item) => (
-                <li key={item.id} id={item.name}>
-                  <button
-                    onClick={() => {
-                      this.handleBraClick(item.name);
-                    }}
-                  >
-                    {item.name}
-                  </button>
-                </li>
-              ))}
-            </div>
-          )}
+          <ul>
+            {this.state.currentMinistry && (
+              <div>
+                <h2>Branches</h2>
+                {this.getBranches().map((item) => (
+                  <li key={item} id={item}>
+                    <button
+                      onClick={() => {
+                        this.handleBraClick(item);
+                      }}
+                    >
+                      {item}
+                    </button>
+                  </li>
+                ))}
+              </div>
+            )}
+          </ul>
 
-          {this.state.currentBranch && (
-            <div>
-              <h2>Services</h2>
-              {this.getServices().map((item) => (
-                <li key={item.id} id={item.name}>
-                  <button
-                    onClick={() => {
-                      this.handleSerClick(item.name);
-                    }}
-                  >
-                    {item.name}
-                  </button>
-                </li>
-              ))}
-            </div>
-          )}
+          <ul>
+            {this.state.currentBranch && (
+              <div>
+                <h2>Services</h2>
+                {this.getServices().map((item) => (
+                  <li key={item} id={item}>
+                    <button
+                      onClick={() => {
+                        this.handleSerClick(item);
+                      }}
+                    >
+                      {item}
+                    </button>
+                  </li>
+                ))}
+              </div>
+            )}
+          </ul>
         </div>
+        Im adding buttons outside the buttons div
+        {this.state.currentService && (
+          <div>
+            <Link
+              to={`/queue/${this.state.currentMinistry}/${this.state.currentBranch}/${this.state.currentService}`}
+            >
+              Queue
+            </Link>
+            <Link
+              to={`/appointment/${this.state.currentMinistry}/${this.state.currentBranch}/${this.state.currentService}`}
+            >
+              Appointment
+            </Link>
+          </div>
+        )}
       </div>
     );
   }
