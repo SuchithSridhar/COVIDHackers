@@ -4,6 +4,9 @@ import Form from "./common/form";
 // import auth from "../services/authService";
 import "./css/loginForm.css";
 
+
+
+
 class LoginForm extends Form {
   state = {
     data: { username: "", password: "" },
@@ -23,10 +26,14 @@ class LoginForm extends Form {
     // }
   };
 
+
+
+
   render() {
     // if (auth.getCurrentUser()) return <Redirect to="/" />;
 
     return (
+      <div className='Full-Page'>
       <div className="login-panel padding-class">
         <h1>Login</h1>
         <form onSubmit={this.handleSubmit}>
@@ -35,6 +42,7 @@ class LoginForm extends Form {
           {this.renderButton("Login")}
         </form>
       </div>
+    </div>
     );
   }
 }

@@ -155,7 +155,6 @@ class Appointment extends Component {
         </div>
         {this.state.currentService && (
 
-          <center>
           <div class="container">
             <div class="verticala-center">
               <Link
@@ -165,7 +164,6 @@ class Appointment extends Component {
               </Link>
             </div>
           </div>
-          </center>
         )}
       </div>
     );
