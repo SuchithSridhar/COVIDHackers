@@ -4,7 +4,6 @@ import Form from "./common/form";
 // import auth from "../services/authService";
 import "./css/loginForm.css";
 
-
 class LoginForm extends Form {
   state = {
     data: { username: "", password: "" },

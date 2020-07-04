@@ -1,4 +1,4 @@
-body{
+body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -6,28 +6,30 @@ body{
   background-size: cover;
 }
 
-.bgc{
+.bgc {
   background-color: #000 !important;
 }
 
-.box{
-  border-style: solid;}
-.login-panel{
+.box {
+  border-style: solid;
+}
+.login-panel {
+  background-color: rgba(11, 22, 8, 0.767);
   width: 280px;
   position: absolute;
   top: 40%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   color: #4caf50;
 }
-.login-panel h1{
+.login-panel h1 {
   float: left;
   font-size: 40px;
   border-bottom: 6px solid #4caf50 !important;
   margin-bottom: 50px;
   padding: 13px 0;
 }
-.textbox{
+.textbox {
   width: 100%;
   /* overflow: hidden; */
   font-size: 20px;
@@ -35,12 +37,12 @@ body{
   margin: 8px 0;
   border-bottom: 1px solid #4caf50;
 }
-.textbox i{
+.textbox i {
   width: 26px;
   float: left;
   text-align: center;
 }
-.textbox input{
+.textbox input {
   border: none;
   outline: none;
   background: none;
@@ -50,7 +52,7 @@ body{
   float: left;
   margin: 0 10px;
 }
-.btn{
+.btn {
   width: 100%;
   /* background: none; */
   border: 2px solid #4caf50;
