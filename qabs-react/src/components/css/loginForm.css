@@ -16,27 +16,20 @@ body {
     border: 1px dotted yellow;
 } */
 
-.Full-Page{
+.Full-Page {
   margin: 0;
   padding: 3000px;
- background-image: url('background1.png');
+  background-image: url("background1.png");
 }
 .padding-class {
   padding: 25px;
 }
 
-.login-panel{
+.login-panel {
   border: #4caf50;
   border-style: solid;
 }
-.login-panel {;
-  width: 280px;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #4caf50;
-}
+
 .login-panel h1 {
   float: left;
   font-size: 40px;
