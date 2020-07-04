@@ -85,13 +85,6 @@ class Queue extends Component {
               <h1 className="navbar-brand">
                 <label>Ministry Services</label>
               </h1>
-              <form className="form-inline">
-                <Link to="/login">
-                  <button className="btn btn-success" type="button">
-                    Login
-                  </button>
-                </Link>
-              </form>
             </div>
           </nav>
         </div>
