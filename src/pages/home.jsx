@@ -45,6 +45,10 @@ class Home extends Component {
     return (
       <div>
         <div>
+<<<<<<< HEAD
+          <label>Ministry Services</label>
+          <Link to="/login"></Link>
+=======
           <nav className="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
           <div className="container-fluid">
             <h1 className='navbar-brand'><label>Ministry Services</label></h1>
@@ -74,6 +78,7 @@ class Home extends Component {
               ))}
               </ul>
             </div>
+          )}
             <div class='col-xs-12 col-sm-6 col-md-4'>
               <ul type='none'>
               {this.state.currentMinistry && (
