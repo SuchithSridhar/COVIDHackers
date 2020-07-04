@@ -20,9 +20,23 @@ class Home extends Component {
             </form>
           </div>
         </nav>
-        <Link to="/appointment">Appointment</Link>
-        <Link to="/queue">Queue</Link>
-        <Link to="/mdets">Ministry Details</Link>
+        <div class="container">
+          <div class="vertical1-center">
+            <Link to="/appointment"><button class='btn btn-lg btn-danger'>Appointment</button></Link>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="vertical2-center">
+            <Link to="/queue"><button class='btn btn-lg btn-danger'>Queue</button></Link>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="vertical3-center">
+            <Link to="/mdets"><button class='btn btn-lg btn-danger'>Ministry Details</button></Link>
+          </div>
+        </div>
       </div>
     );
   }

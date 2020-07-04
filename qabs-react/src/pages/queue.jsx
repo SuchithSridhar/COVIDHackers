@@ -154,16 +154,13 @@ class Queue extends Component {
           </div>
         </div>
         {this.state.currentService && (
-          <div className="container">
-            <div className="vertical-center">
-              <form className="form-inline">
-                <Link
-                  to={`/queue/${this.state.currentMinistry}/${this.state.currentBranch}/${this.state.currentService}`}
-                >
-                  {" "}
-                  <button class="btn btn-primary btn-active">Queue</button>
-                </Link>
-              </form>
+          <div class="container">
+            <div class="verticala-center">
+              <Link
+                to={`/queue/${this.state.currentMinistry}/${this.state.currentBranch}/${this.state.currentService}`}
+              ><button className='btn btn-lg btn-danger'>Queue</button>
+
+              </Link>
             </div>
           </div>
         )}

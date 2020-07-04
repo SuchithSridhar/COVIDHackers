@@ -11,19 +11,40 @@ html, body {
   /* border: 3px solid green; */
 }
 
-.vertical-center {
+.verticala-center {
   margin: 0;
+  width: 200px;
   position: absolute;
-  top: 50%;
-  left: 35%;
+  top: 65%;
+  left: 43%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
 .vertical1-center {
   margin: 0;
+  width: 200px;
   position: absolute;
-  bottom: 120%;
-  left: 50%;
+  top: 65%;
+  left: 20%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.vertical2-center {
+  margin: 0;
+  width: 200px;
+  position: absolute;
+  bottom: 99%;
+  left: 43%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.vertical3-center {
+  margin: 0;
+  width: 200px;
+  position: absolute;
+  bottom: 200%;
+  left: 65%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }

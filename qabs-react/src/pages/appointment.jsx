@@ -154,13 +154,18 @@ class Appointment extends Component {
           </div>
         </div>
         {this.state.currentService && (
-          <div>
-            <Link
-              to={`/appointment/${this.state.currentMinistry}/${this.state.currentBranch}/${this.state.currentService}`}
-            >
-              Appointment
-            </Link>
+
+          <center>
+          <div class="container">
+            <div class="verticala-center">
+              <Link
+                to={`/appointment/${this.state.currentMinistry}/${this.state.currentBranch}/${this.state.currentService}`}
+              ><button className='btn btn-lg btn-danger'>Appointment</button>
+
+              </Link>
+            </div>
           </div>
+          </center>
         )}
       </div>
     );
