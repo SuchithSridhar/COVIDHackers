@@ -20,10 +20,34 @@ class Home extends Component {
 
   getBranches = () => {
     const ministry = this.state.currentMinistry;
-    let branches = this.state.ministries[ministry];
-    if (ministry === "Something") branches = ["fahaheel", "Mangaf"];
-    else branches = ["abu halifa"];
+    // let branches = this.state.ministries[ministry];
+    let branches = [];
+    if (ministry === "Something")
+      branches = [
+        { id: 1, name: "fahaheel" },
+        { id: 2, name: "Mangaf" },
+      ];
+    else branches = branches = [{ id: 1, name: "abu halifa" }];
     return branches;
+  };
+
+  getServices = () => {
+    const ministry = this.state.currentMinistry;
+    console.log(ministry);
+    const branch = this.state.currentBranch;
+    // let services = this.state.ministries[ministry][branch];
+    let services = [];
+    if (branch === "fahaheel")
+      services = [
+        { id: 1, name: "air" },
+        { id: 2, name: "water" },
+      ];
+    else if (branch === "Mangaf")
+      services = [
+        { id: 1, name: "earth" },
+        { id: 2, name: "fire" },
+      ];
+    return services;
   };
 
   handleMinClick = (ministry) => {
@@ -87,12 +111,12 @@ class Home extends Component {
 
           {this.state.currentBranch && (
             <div>
-              <h2>Branches</h2>
-              {this.getBranches().map((item) => (
+              <h2>Services</h2>
+              {this.getServices().map((item) => (
                 <li key={item.id} id={item.name}>
                   <button
                     onClick={() => {
-                      this.handleBraClick(item.name);
+                      this.handleSerClick(item.name);
                     }}
                   >
                     {item.name}
