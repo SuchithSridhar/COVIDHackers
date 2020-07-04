@@ -161,7 +161,7 @@ class Home extends Component {
             <form className="form-inline">
               <Link
               to={`/queue/${this.state.currentMinistry}/${this.state.currentBranch}/${this.state.currentService}`}
-            > <button class='btn btn-primary btn-active'>
+            > <button class='btn btn-danger btn-active'>
               Queue
               </button>
             </Link>
@@ -169,11 +169,18 @@ class Home extends Component {
           </div>
           </div>
 
+          <div className='container'>
+            <div className='vertical1-center'>
+          <form className="form-inline">
             <Link
-              to={`/appointment/${this.state.currentMinistry}/${this.state.currentBranch}/${this.state.currentService}`}
-            >
-              Appointment
-            </Link>
+            to={`/appointment/${this.state.currentMinistry}/${this.state.currentBranch}/${this.state.currentService}`}
+          > <button class='btn btn-danger btn-active'>
+            Appointment
+            </button>
+          </Link>
+        </form>
+        </div>
+        </div>
           </div>
         )}
       </div>
